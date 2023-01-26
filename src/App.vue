@@ -3,24 +3,28 @@
 import axios from 'axios';
 
 import ProjectCard from './components/ProjectCard.vue';
+import PaginationNav from './components/PaginationNav.vue';
 
 export default{
   name: 'App',
   data(){
     return{
       url: 'http://127.0.0.1:8000/api/projects',
-      projects: []
+      projects: [],
+      links: []
     }
   },
   components:{
-    ProjectCard
+    ProjectCard,
+    PaginationNav
   },
   methods:{
     callApi(url){
       axios.get(url)
           .then(result=>{
-            this.projects = result.data.projects;
-            console.log(this.projects);
+            this.projects = result.data.projects.data;
+            this.links = result.data.projects.links;
+            console.log(result.data.projects.links);
           })
     }
   },
@@ -45,6 +49,10 @@ export default{
         :description="project.summary"
       />
     </div>
+    <PaginationNav
+      :links="links" 
+      @callApi="callApi"
+    />
   </div>
 
 </template>

@@ -23,7 +23,7 @@ export default{
     <h3><span class="text_accent">Title:</span> {{title}}</h3>
     <h3><span class="text_accent">Client:</span> {{client}}</h3>
     <h3><span class="text_accent">Type:</span> {{type}}</h3>
-    <div v-if="!technology" class="card_tag">
+    <div v-if="!technologies" class="card_tag">
       <span v-for="technology in technologies" :key="technology.id" >{{ technology.name }}</span>
     </div>
   </div>
