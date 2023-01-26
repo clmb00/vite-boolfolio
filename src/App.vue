@@ -2,6 +2,8 @@
 
 import axios from 'axios';
 
+import ProjectCard from './components/ProjectCard.vue';
+
 export default{
   name: 'App',
   data(){
@@ -9,6 +11,9 @@ export default{
       url: 'http://127.0.0.1:8000/api/projects',
       projects: []
     }
+  },
+  components:{
+    ProjectCard
   },
   methods:{
     callApi(url){
@@ -27,11 +32,29 @@ export default{
 </script>
 
 <template>
-  
-  <h1>Ciao</h1>
+
+  <div class="container">
+    <h1>Projects</h1>
+    <div class="card_wrapper">
+      <ProjectCard
+        v-for="project in projects" :key="project.id"
+        :title="project.name"
+        :client="project.client_name"
+        :type="project.type.name"
+        :technologies="project.technologies"
+        :description="project.summary"
+      />
+    </div>
+  </div>
 
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
+.card_wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
 
 </style>
