@@ -40,7 +40,7 @@ export default{
     <div v-if="project.technologies" class="card_tag">
       <span v-for="technology in project.technologies" :key="technology.id" >{{ technology.name }}</span>
     </div>
-    <p>{{ project.summary }}</p>
+    <p v-html="project.summary"></p>
   </div>
 
 </template>

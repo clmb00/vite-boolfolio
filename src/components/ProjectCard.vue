@@ -29,9 +29,7 @@ export default{
     </div>
   </div>
   <div class="card_descr">
-    <p>
-      {{description}}
-    </p>
+    <p v-html="description"></p>
     <p>Click the title or <router-link :to="{name: 'detail', params: {slug: slug}}">here</router-link> to see more about this project</p>
   </div>
 </div>
