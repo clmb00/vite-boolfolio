@@ -35,7 +35,7 @@ export default{
     <h3><span class="text_accent">For:</span> {{project.client_name}}</h3>
     <h3><span class="text_accent">Type:</span> {{project.type.name}}</h3>
     <div class="image">
-      <img src="#" alt="Image">
+      <img :src="project.cover_image" :alt="project.slug">
     </div>
     <div v-if="project.technologies" class="card_tag">
       <span v-for="technology in project.technologies" :key="technology.id" >{{ technology.name }}</span>
@@ -57,6 +57,9 @@ h3{
 
 .image{
   margin-bottom: 1rem;
+  img{
+    height: 400px;
+  }
 }
 
 .text_accent{
