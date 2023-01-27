@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-import ProjectCard from '../components/PaginationNav.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 import PaginationNav from '../components/PaginationNav.vue';
 
 export default{
@@ -24,7 +24,7 @@ export default{
           .then(result=>{
             this.projects = result.data.projects.data;
             this.links = result.data.projects.links;
-            console.log(result.data.projects.links);
+            console.log(this.projects);
           })
     }
   },

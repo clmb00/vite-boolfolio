@@ -22,12 +22,17 @@ a{
   color: white;
 }
 
+p{
+  margin-bottom: 1rem;
+}
+
 .container{
   text-align: center;
 }
 
 h1{
   color: rgb(196, 0, 0);
+  margin-bottom: 1rem;
 }
 
 </style>
