@@ -1,14 +1,16 @@
 <script>
 
 export default{
-  name: 'App'
+  name: 'Contacts'
 }
 
 </script>
 
 <template>
 
-  <router-view></router-view>
+  <div class="container">
+    <h1>Contact Me</h1>
+  </div>
 
 </template>
 

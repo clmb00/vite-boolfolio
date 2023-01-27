@@ -1,14 +1,16 @@
 <script>
 
 export default{
-  name: 'App'
+  name: 'Home'
 }
 
 </script>
 
 <template>
 
-  <router-view></router-view>
+  <div class="container">
+    <h1>Home</h1>
+  </div>
 
 </template>
 

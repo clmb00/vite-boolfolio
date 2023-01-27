@@ -1,14 +1,16 @@
 <script>
 
 export default{
-  name: 'App'
+  name: 'About'
 }
 
 </script>
 
 <template>
 
-  <router-view></router-view>
+  <div class="container">
+    <h1>About Me</h1>
+  </div>
 
 </template>
 
