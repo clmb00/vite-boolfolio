@@ -44,6 +44,7 @@ export default{
               this.technologies = result.data.technologies;
             }
             console.log(this.links);
+            console.log(this.projects);
           })
 
     },
@@ -101,6 +102,7 @@ export default{
     </div>
 
     <div class="card_wrapper">
+      <h2 v-show="!projects.length">No project found.</h2>
       <ProjectCard
         v-for="project in projects" :key="project.id"
         :title="project.name" 
@@ -112,6 +114,7 @@ export default{
       />
     </div>
     <PaginationNav
+      v-show="projects.length"
       :links="links" 
       @callApi="callApi"
     />
