@@ -53,8 +53,11 @@ export default{
         this.callApi(this.newUrl);
       }
     },
-    callFilterTech(id){
+    callFilterType(id){
       this.callApi(this.base_url + '/filter-type/' + id);
+    },
+    callFilterTech(id){
+      this.callApi(this.base_url + '/filter-tech/' + id);
     }
   },
   mounted(){
@@ -85,14 +88,14 @@ export default{
 
     <div class="types">
       <span>Types: </span>
-      <div class="tag" v-for="elem in types" :key="'type-' + elem.id" @click="callFilterTech(elem.id); tagActive = elem.slug" :class="tagActive == elem.slug ? 'tagActive' : ''">
+      <div class="tag" v-for="elem in types" :key="'type-' + elem.id" @click="callFilterType(elem.id); tagActive = elem.slug" :class="tagActive == elem.slug ? 'tagActive' : ''">
         {{ elem.name }}
       </div>
     </div>
     
     <div class="technos">
       <span>Technologies: </span>
-      <div class="tag" v-for="elem in technologies" :key="'tech-' + elem.id" :class="tagActive == elem.slug ? 'tagActive' : ''">
+      <div class="tag" v-for="elem in technologies" :key="'tech-' + elem.id" @click="callFilterTech(elem.id); tagActive = elem.slug" :class="tagActive == elem.slug ? 'tagActive' : ''">
         {{ elem.name }}
       </div>
     </div>
