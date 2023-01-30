@@ -58,7 +58,7 @@ a{
     color: bisque;
   }
   &.active{
-    color: burlywood;
+    color: #deb887;
   }
 }
 

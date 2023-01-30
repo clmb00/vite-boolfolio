@@ -13,7 +13,10 @@ export default{
     return{
       url,
       projects: [],
-      links: []
+      links: [],
+      searchWhere: "",
+      searchWhat: "",
+      newUrl: ""
     }
   },
   components:{
@@ -22,12 +25,24 @@ export default{
   },
   methods:{
     callApi(url){
+
+      if(url.includes('search') && url.includes('page')){
+        url = url + '&what=' + this.searchWhat + '&where=' + this.searchWhere;
+      }
+
       axios.get(url)
           .then(result=>{
             this.projects = result.data.projects.data;
             this.links = result.data.projects.links;
-            console.log(this.projects);
+            console.log(this.links);
           })
+
+    },
+    callSearch(){
+      if(this.searchWhere){
+        this.newUrl = url + '/search?what=' + this.searchWhat + '&where=' + this.searchWhere;
+        this.callApi(this.newUrl);
+      }
     }
   },
   mounted(){
@@ -40,7 +55,22 @@ export default{
 <template>
 
   <div class="container">
+    
     <h1>Projects</h1>
+
+    <div class="search">
+      <span>Search: </span>
+      <input type="text" v-model.trim="searchWhat" placeholder="Lorem..." @keyup.enter="callSearch">
+      <span>in</span>
+      <select v-model="searchWhere">
+        <option value="" disabled>Select one</option>
+        <option value="name">Name</option>
+        <option value="client_name">Client name</option>
+        <option value="summary">Summary</option>
+      </select>
+      <button @click="callSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
     <div class="card_wrapper">
       <ProjectCard
         v-for="project in projects" :key="project.id"
@@ -66,6 +96,40 @@ export default{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.search{
+  text-align: end;
+  input{
+    background-color: rgba($color: #FFF, $alpha: .9);
+    padding: .6rem 1rem;
+    border-radius: 1rem;
+    margin-block: 1rem;
+    min-width: 25%;
+    &:focus{
+      outline: 2px solid #deb887;
+    }
+  }
+  button{
+    cursor: pointer;
+    padding: .6rem .8rem;
+    border-radius: 50%;
+    &:active{
+      outline: 2px solid #deb887;
+    }
+  }
+  select{
+    padding: .6rem .8rem;
+    border-radius: 1rem;
+    margin-inline-end: .5rem;
+    &:focus{
+      outline: 2px solid #deb887;
+    }
+  }
+
+  span{
+    margin-inline: .5rem;
+  }
 }
 
 </style>

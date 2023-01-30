@@ -65,13 +65,13 @@ export default{
         cursor: pointer;
         padding-block: .5rem;
         padding-inline: 1rem;
-        background-color: rgba($color: #7a0000, $alpha: .3);
+        background-color: rgba($color: #deb887, $alpha: .5);
         border-radius: 50px;
         margin: .25rem;
         font-size: .8rem;
         width: fit-content;
         &:hover{
-          background-color: rgba($color: #7a0000, $alpha: .5);
+          background-color: rgba($color: #deb887, $alpha: .8);
         }
       }
     }

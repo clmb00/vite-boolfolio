@@ -41,7 +41,7 @@ export default{
     border-color: rgba($color: #d3d3d3, $alpha: .1);
   }
   &.active{
-    background-color: rgba($color: #d3d3d3, $alpha: 1.2);
+    background-color: rgba($color: #deb887, $alpha: .7);
   }
 }
 
