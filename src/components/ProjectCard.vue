@@ -45,6 +45,10 @@ export default{
   margin-block: 1rem;
   border-radius: 2rem;
   background-color: rgba($color: #96afc4, $alpha: .5);
+  transition: transform .3s ease;
+  &:hover{
+    transform: scale(1.05);
+  }
   .card_title{
     width: 40%;
     padding-left: 1rem;

@@ -59,6 +59,12 @@ export default{
     },
     callFilterTech(id){
       this.callApi(this.base_url + '/filter-tech/' + id);
+    },
+    resetFilters(){
+      this.searchWhere = '';
+      this.searchWhat = '';
+      this.tagActive = '';
+      this.callApi(this.base_url);
     }
   },
   mounted(){
@@ -85,6 +91,7 @@ export default{
         <option value="summary">Summary</option>
       </select>
       <button @click="callSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button @click="resetFilters"><i class="fa-solid fa-x"></i></button>
     </div>
 
     <div class="types">
@@ -146,6 +153,7 @@ export default{
     cursor: pointer;
     padding: .6rem .8rem;
     border-radius: 50%;
+    margin-inline-end: .5rem;
     &:active{
       outline: 2px solid #deb887;
     }
